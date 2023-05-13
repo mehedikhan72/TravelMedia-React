@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/travelmedia-react/static/css/main.2c562fea.css",
-    "main.js": "/travelmedia-react/static/js/main.e1c15496.js",
-    "index.html": "/travelmedia-react/index.html",
-    "main.2c562fea.css.map": "/travelmedia-react/static/css/main.2c562fea.css.map",
-    "main.e1c15496.js.map": "/travelmedia-react/static/js/main.e1c15496.js.map"
+    "main.css": "/TravelMedia-React/static/css/main.2c562fea.css",
+    "main.js": "/TravelMedia-React/static/js/main.e1c15496.js",
+    "index.html": "/TravelMedia-React/index.html",
+    "main.2c562fea.css.map": "/TravelMedia-React/static/css/main.2c562fea.css.map",
+    "main.e1c15496.js.map": "/TravelMedia-React/static/js/main.e1c15496.js.map"
   },
   "entrypoints": [
     "static/css/main.2c562fea.css",
