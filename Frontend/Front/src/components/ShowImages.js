@@ -3,7 +3,7 @@ export default function ShowImages(props) {
     const postId = props.id;
     const [images, setImages] = useState([]);
     useEffect(() => {
-        fetch(`https://travelmedia-api-production.up.railway.app/get_images/${postId}/`)
+        fetch(`https://travelmedia-api-production.up.railway.app/api/get_images/${postId}/`)
             .then(response => response.json())
             .then(json => {
                 setImages(json);
@@ -38,7 +38,7 @@ export default function ShowImages(props) {
     return (
         <div>
             {totalImages > 0 && <div className="image-div" onClick={showPostDetail}>
-                <img className="images" width="400px" src={`http://127.0.0.1:8000${images[currentCount].image}`} ></img>
+                <img className="images" width="400px" src={`https://travelmedia-api-production.up.railway.app${images[currentCount].image}`} ></img>
             </div>}
             <br />
             {totalImages > 1 && <div className="image-btns">

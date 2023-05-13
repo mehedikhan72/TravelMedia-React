@@ -6,16 +6,14 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
-    //TODO: BUG: when pc is restarted and I open the website, everything is blank, if I refresh, all good.
-    let [user, setUser] = useState(() => {
-        const storedUser = localStorage.getItem('user');
-        return storedUser ? JSON.parse(storedUser) : { isLoggedIn: false };
-    });
+    let [user, setUser] = useState(() => localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null)
 
     const navigate = useNavigate();
 
     const getUser = (pfpUrl) => {
+        // console.log('fn called')
         if (localStorage.getItem('access_token')) {
+            // console.log('if called')
             fetch(`https://travelmedia-api-production.up.railway.app/api/get_current_user/`, {
                 method: 'GET',
                 headers: {
@@ -29,9 +27,8 @@ export const AuthProvider = ({ children }) => {
                     if (data.username) {
                         localStorage.setItem('user', JSON.stringify(data));
                         setUser(data);
-                    } else {
-                        localStorage.setItem('user', JSON.stringify({ isLoggedIn: false }));
-                        setUser({ isLoggedIn: false });
+                    }
+                    else {
                         updateToken();
                     }
                 })
@@ -57,7 +54,6 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
-
     useEffect(() => {
         if (localStorage.getItem('access_token')) {
             getUser();
@@ -76,12 +72,13 @@ export const AuthProvider = ({ children }) => {
                 username: e.target.username.value,
                 password: e.target.password.value,
                 grant_type: 'password',
-                client_id: 'ZlFBF8Me6pv647smuOrhgXl224EIzhBcHV16rNMw',
-                client_secret: 'yswOBeoY6fPfVpDzDTicqmhSvYGPz3NX4gjYzNTRkKW57jPkqM16eGabdi2uvJcnoKhLqQ4u9XPImh2DdoOuxhSy6S71ONo6XsUDQfMPhZNgg5bjNDcYQurj7ljKSVGc'
+                client_id: 'f6WBSZSesx3EchqguKA0Mvfdz3PiQiZLSu5uMP39',
+                client_secret: '78DqOuQLkIdfir2bj05KKYB8PPEq07G6CyVkcneVMtsaPA2xxn9n6q4iR40Y4gCSdG9MdtUl0QB8UyRjYaBAjHh1cRwEzkl2WSLsns2lOB2f1Yl1VIjiyH7F4iP506Cq'
             })
         })
 
         let data = await response.json();
+        console.log(data);
         if (response.status === 200) {
             localStorage.setItem('access_token', data.access_token);
             localStorage.setItem('refresh_token', data.refresh_token);
@@ -111,8 +108,8 @@ export const AuthProvider = ({ children }) => {
             body: JSON.stringify({
                 refresh_token: localStorage.getItem('refresh_token'),
                 grant_type: 'refresh_token',
-                client_id: 'ZlFBF8Me6pv647smuOrhgXl224EIzhBcHV16rNMw',
-                client_secret: 'yswOBeoY6fPfVpDzDTicqmhSvYGPz3NX4gjYzNTRkKW57jPkqM16eGabdi2uvJcnoKhLqQ4u9XPImh2DdoOuxhSy6S71ONo6XsUDQfMPhZNgg5bjNDcYQurj7ljKSVGc'
+                client_id: 'f6WBSZSesx3EchqguKA0Mvfdz3PiQiZLSu5uMP39',
+                client_secret: '78DqOuQLkIdfir2bj05KKYB8PPEq07G6CyVkcneVMtsaPA2xxn9n6q4iR40Y4gCSdG9MdtUl0QB8UyRjYaBAjHh1cRwEzkl2WSLsns2lOB2f1Yl1VIjiyH7F4iP506Cq'
             })
         })
         let data = await response.json();
@@ -148,8 +145,8 @@ export const AuthProvider = ({ children }) => {
                     token: socialAccessToken,
                     backend: backend,
                     grant_type: 'convert_token',
-                    client_id: 'ZlFBF8Me6pv647smuOrhgXl224EIzhBcHV16rNMw',
-                    client_secret: 'yswOBeoY6fPfVpDzDTicqmhSvYGPz3NX4gjYzNTRkKW57jPkqM16eGabdi2uvJcnoKhLqQ4u9XPImh2DdoOuxhSy6S71ONo6XsUDQfMPhZNgg5bjNDcYQurj7ljKSVGc'
+                    client_id: 'f6WBSZSesx3EchqguKA0Mvfdz3PiQiZLSu5uMP39',
+                    client_secret: '78DqOuQLkIdfir2bj05KKYB8PPEq07G6CyVkcneVMtsaPA2xxn9n6q4iR40Y4gCSdG9MdtUl0QB8UyRjYaBAjHh1cRwEzkl2WSLsns2lOB2f1Yl1VIjiyH7F4iP506Cq'
                 })
             })
                 .then(response => response.json())
@@ -164,7 +161,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        let time = 1000 * 60 * 59;
+        let time = 1000 * 60 * 58;
         let interval = setInterval(() => {
             if (localStorage.getItem('refresh_token')) {
                 updateToken();

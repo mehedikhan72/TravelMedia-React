@@ -22,10 +22,16 @@ export default function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log("fn ran")
+        console.log(password)
+        console.log(confirm_password)
         if (password === confirm_password) {
+            console.log("inside if block");
+            setShowLoading(true);
+            console.log("show loading")
             const data = { username, email, password, confirm_password };
-            fetch('https://travelmedia-api-production.up.railway.app/user/register/', {
+            console.log("fetching")
+            fetch('https://travelmedia-api-production.up.railway.app/api/user/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -33,9 +39,11 @@ export default function Register() {
                 body: JSON.stringify(data)
             })
                 .then(response => {
+                    setShowLoading(false);
                     return response.json();
                 })
                 .then(data => {
+                    console.log(data);
                     if(data.error) {
                         setMessage(data.error);
                     }

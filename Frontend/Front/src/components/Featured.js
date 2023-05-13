@@ -54,7 +54,7 @@ export default function Featured() {
                                 <Slide
                                     className="images"
                                     background={{
-                                        backgroundImageSrc: `http://127.0.0.1:8000${post.featured_image}/`,
+                                        backgroundImageSrc: `https://travelmedia-api-production.up.railway.app${post.featured_image}/`,
                                     }}
                                 />
                             </Link>
