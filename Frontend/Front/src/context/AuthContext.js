@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
     const getUser = (pfpUrl) => {
         if (localStorage.getItem('access_token')) {
-            fetch(`http://127.0.0.1:8000/api/get_current_user/`, {
+            fetch(`https://travelmedia-api-production.up.railway.app/api/get_current_user/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         //update pfp
         if (pfpUrl) {
             console.log(pfpUrl)
-            fetch(`http://127.0.0.1:8000/api/add_social_image/`, {
+            fetch(`https://travelmedia-api-production.up.railway.app/api/add_social_image/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     const [message, setMessage] = useState(null);
     let loginUser = async (e) => {
         e.preventDefault();
-        let response = await fetch(`http://127.0.0.1:8000/auth/token/`, {
+        let response = await fetch(`https://travelmedia-api-production.up.railway.app/auth/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
 
     let updateToken = async () => {
         console.log("update token called")
-        let response = await fetch(`http://127.0.0.1:8000/auth/token/`, {
+        let response = await fetch(`https://travelmedia-api-production.up.railway.app/auth/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,7 +139,7 @@ export const AuthProvider = ({ children }) => {
         console.log("social login called");
         console.log(backend);
         if (socialAccessToken && backend) {
-            fetch('http://127.0.0.1:8000/auth/convert-token/', {
+            fetch('https://travelmedia-api-production.up.railway.app/auth/convert-token/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

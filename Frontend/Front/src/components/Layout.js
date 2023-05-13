@@ -56,7 +56,7 @@ export default function Layout() {
   const [unSeenNotifications, setUnSeenNotifications] = useState(null);
 
   const notificationsSeen = () => {
-    const url = `http://127.0.0.1:8000/api/mark_notifications_as_seen/`;
+    const url = `https://travelmedia-api-production.up.railway.app/api/mark_notifications_as_seen/`;
 
     fetch(url, {
       method: 'PUT',
@@ -83,7 +83,7 @@ export default function Layout() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const url = `http://127.0.0.1:8000/api/notifications/`;
+    const url = `https://travelmedia-api-production.up.railway.app/api/notifications/`;
 
     fetch(url, {
       method: 'GET',
@@ -98,7 +98,7 @@ export default function Layout() {
         // console.log(data);
       })
 
-    fetch(`http://127.0.0.1:8000/api/get_unseen_notifications_count/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/get_unseen_notifications_count/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

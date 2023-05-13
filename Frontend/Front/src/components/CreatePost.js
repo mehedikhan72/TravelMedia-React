@@ -80,7 +80,7 @@ export default function CreatePost(props) {
         console.log(formData);
 
         if (localStorage.getItem("access_token")) {
-            fetch('http://127.0.0.1:8000/api/posts/', {
+            fetch('https://travelmedia-api-production.up.railway.app/api/posts/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export default function CreatePost(props) {
                 .then((response) => response.json())
                 .then((data) => {
                     // Post the images
-                    fetch(`http://127.0.0.1:8000/api/post_images/`, {
+                    fetch(`https://travelmedia-api-production.up.railway.app/api/post_images/`, {
                         method: 'POST',
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("access_token")}`,

@@ -44,7 +44,7 @@ export default function EditPost(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const url = `http://127.0.0.1:8000/api/posts/${post.id}/`;
+        const url = `https://travelmedia-api-production.up.railway.app/api/posts/${post.id}/`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -57,7 +57,7 @@ export default function EditPost(props) {
             .then(
                 (data) => {
                     // Fetch the images
-                    fetch(`http://127.0.0.1:8000/api/post_images/`, {
+                    fetch(`https://travelmedia-api-production.up.railway.app/api/post_images/`, {
                         method: 'POST',
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("access_token")}`,

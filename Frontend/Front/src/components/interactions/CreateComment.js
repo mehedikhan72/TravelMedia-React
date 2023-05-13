@@ -7,7 +7,7 @@ export default function CreateComment(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (localStorage.getItem("access_token")) {
-            fetch(`http://127.0.0.1:8000/api/post/${post_id}/comments/`, {
+            fetch(`https://travelmedia-api-production.up.railway.app/api/post/${post_id}/comments/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

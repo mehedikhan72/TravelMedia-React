@@ -7,7 +7,7 @@ export default function Comments(props) {
     const post_id = props.post_id;
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/post/${post_id}/comments/`)
+        fetch(`https://travelmedia-api-production.up.railway.app/api/post/${post_id}/comments/`)
             .then(response => response.json())
             .then(json => {
                 console.log(json);

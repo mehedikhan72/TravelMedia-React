@@ -6,10 +6,10 @@ import FetchPosts from "./FetchPosts";
 export default function Profile(props) {
 
   const { username } = useParams(); // The one who's profile we are visiting.
-  const [fetchPostUrl, setFetchPostUrl] = useState(`http://127.0.0.1:8000/api/users/${username}/posts/`);
+  const [fetchPostUrl, setFetchPostUrl] = useState(`https://travelmedia-api-production.up.railway.app/api/users/${username}/posts/`);
 
   useEffect(() => {
-    setFetchPostUrl(`http://127.0.0.1:8000/api/users/${username}/posts/`);
+    setFetchPostUrl(`https://travelmedia-api-production.up.railway.app/api/users/${username}/posts/`);
   }, [username])
 
   const [fData, setFData] = useState({}); // fData denoting followers n following data
@@ -21,7 +21,7 @@ export default function Profile(props) {
   // Follow/ Unfollow data
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/users/${username}/f_data/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/users/${username}/f_data/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export default function Profile(props) {
   }, [dataChanged, username]);
 
   const handleFollow = () => {
-    fetch(`http://127.0.0.1:8000/api/users/${username}/follow/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/users/${username}/follow/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export default function Profile(props) {
   }
 
   const handleUnfollow = () => {
-    fetch(`http://127.0.0.1:8000/api/users/${username}/unfollow/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/users/${username}/unfollow/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function Profile(props) {
   const [profiledEditedCLicked, setProfileEditedClicked] = useState(false);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/get_user_data/${username}/`)
+    fetch(`https://travelmedia-api-production.up.railway.app/api/get_user_data/${username}/`)
       .then(response => response.json())
       .then(json => {
         if (json.pfp !== null) {
@@ -137,7 +137,7 @@ export default function Profile(props) {
   const profileEdited = (e) => {
     e.preventDefault();
     // Upload text data.
-    fetch(`http://127.0.0.1:8000/api/edit_profile/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/edit_profile/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export default function Profile(props) {
       .then(json => {
         const formData = new FormData();
         formData.append('pfp', profileImage);
-        fetch(`http://127.0.0.1:8000/api/edit_profile/`, {
+        fetch(`https://travelmedia-api-production.up.railway.app/api/edit_profile/`, {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${localStorage.getItem("access_token")}`
@@ -187,7 +187,7 @@ export default function Profile(props) {
   }
   const reportProfile = (e) => {
     e.preventDefault();
-    fetch(`http://127.0.0.1:8000/api/report_user/${username}/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/report_user/${username}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import React from "react";
 import FetchPosts from "./FetchPosts";
 
 export default function FollowingPosts() {
-    const url = `http://localhost:8000/api/get_following_posts/`;
+    const url = `https://travelmedia-api-production.up.railway.app/api/get_following_posts/`;
     const followingPosts = true;
     return (
         <div>

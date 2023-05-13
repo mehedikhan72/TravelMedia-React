@@ -12,7 +12,7 @@ export default function PostOptions(props) {
     const [postSavedMessage, setPostSavedMessage] = useState('');
 
     const savePost = (id) => {
-        const url = `http://127.0.0.1:8000/api/save_post/${id}/`;
+        const url = `https://travelmedia-api-production.up.railway.app/api/save_post/${id}/`;
 
         fetch(url, {
             method: 'POST',
@@ -36,7 +36,7 @@ export default function PostOptions(props) {
 
     const [postIdToBeDeleted, setPostIdToBeDeleted] = useState(null);
     const deletePost = () => {
-        const url = `http://127.0.0.1:8000/api/posts/${postIdToBeDeleted}/`;
+        const url = `https://travelmedia-api-production.up.railway.app/api/posts/${postIdToBeDeleted}/`;
         fetch(url, {
             method: 'DELETE',
             headers: {
@@ -63,7 +63,7 @@ export default function PostOptions(props) {
 
     const reportPost = (e) => {
         e.preventDefault();
-        const url = `http://127.0.0.1:8000/api/report_post/${postIdTobeReported}/`;
+        const url = `https://travelmedia-api-production.up.railway.app/api/report_post/${postIdTobeReported}/`;
         fetch(url, {
             method: 'POST',
             headers: {

@@ -3,7 +3,7 @@ import HeroSlider, { Slide } from "hero-slider"
 import { Link } from "react-router-dom";
 
 export default function Featured() {
-    const url = `http://127.0.0.1:8000/api/get_featured_posts/`
+    const url = `https://travelmedia-api-production.up.railway.app/api/get_featured_posts/`
     const [data, setData] = useState([])
 
     useEffect(() => {

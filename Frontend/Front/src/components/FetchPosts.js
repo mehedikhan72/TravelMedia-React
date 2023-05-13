@@ -134,7 +134,7 @@ export default function FetchPosts(props) {
   const [isSaved, setIsSaved] = useState(null);
 
   const isPostSaved = (id) => {
-    const url = `http://127.0.0.1:8000/api/is_post_saved/${id}/`;
+    const url = `https://travelmedia-api-production.up.railway.app/api/is_post_saved/${id}/`;
     fetch(url, {
       method: 'GET',
       headers: {

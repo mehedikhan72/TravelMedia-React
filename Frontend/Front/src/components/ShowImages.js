@@ -3,7 +3,7 @@ export default function ShowImages(props) {
     const postId = props.id;
     const [images, setImages] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/get_images/${postId}/`)
+        fetch(`https://travelmedia-api-production.up.railway.app/get_images/${postId}/`)
             .then(response => response.json())
             .then(json => {
                 setImages(json);

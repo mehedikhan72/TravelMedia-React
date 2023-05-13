@@ -5,7 +5,7 @@ import FetchPeople from "./FetchPeople";
 
 export default function SearchResult(props) {
     const { query } = useParams();
-    const [url, setUrl] = useState(`http://127.0.0.1:8000/api/posts/`);
+    const [url, setUrl] = useState(`https://travelmedia-api-production.up.railway.app/posts/`);
     // console.log(query);
     // console.log(url)
     const [searchView, setSearchView] = useState('places');
@@ -14,7 +14,7 @@ export default function SearchResult(props) {
         setSearchView('people');
     }
 
-    const people_url = `http://127.0.0.1:8000/api/search/users/`
+    const people_url = `https://travelmedia-api-production.up.railway.app/search/users/`
     return (
         <div>
             <div className="center-stuff">

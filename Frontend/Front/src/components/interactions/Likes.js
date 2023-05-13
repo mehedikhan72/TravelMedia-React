@@ -12,7 +12,7 @@ export default function Likes(props) {
 
   // get status
   const getStatus = () => {
-    fetch(`http://127.0.0.1:8000/api/post/${post_id}/like_status/`, {
+    fetch(`https://travelmedia-api-production.up.railway.app/api/post/${post_id}/like_status/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -25,7 +25,7 @@ export default function Register() {
 
         if (password === confirm_password) {
             const data = { username, email, password, confirm_password };
-            fetch('http://localhost:8000/api/user/register/', {
+            fetch('https://travelmedia-api-production.up.railway.app/user/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ export default function Login() {
     let { loginUser } = useContext(AuthContext);
     let { user } = useContext(AuthContext);
     console.log(user)
-    // console.log("this is login page");
+    console.log("this is login page");
 
     let { message } = useContext(AuthContext);
 

@@ -3,7 +3,7 @@ import Featured from "./Featured";
 import FetchPosts from "./FetchPosts";
 
 export default function Posts() {
-  const url = `http://127.0.0.1:8000/api/posts/`;
+  const url = `https://travelmedia-api-production.up.railway.app/api/posts/`;
   const feedView = true;
   return (
     <div>
